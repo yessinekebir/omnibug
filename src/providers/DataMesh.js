@@ -118,6 +118,32 @@ class DataMeshProvider extends BaseProvider
     }
 
     /**
+     * Parse any POST data into param key/value pairs
+     *
+     * @param postData
+     * @return {Array|Object}
+     */
+    parsePostData(postData = "")
+    {
+        let params = [];
+        if(typeof postData === "string" && postData)
+        {
+            try
+            {
+                let parsed = JSON.parse(postData);
+                Object.entries(parsed).forEach((entry) => {
+                    params.push([entry[0], entry[1].toString()]);
+                });
+            }
+            catch(e)
+            {
+                console.error("postData is not JSON", e.message);
+            }
+        }
+        return params;
+    }
+
+    /**
      * Parse custom properties for a given URL
      *
      * @param    {object}   url
