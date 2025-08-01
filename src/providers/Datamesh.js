@@ -10,6 +10,18 @@ class DatameshProvider extends BaseProvider {
     }
 
     /**
+     * Retrieve the column mappings for default columns (account, event type)
+     *
+     * @return {{}}
+     */
+    get columnMapping()
+    {
+        return {
+            "requestType":  "requestType"
+        };
+    }
+
+    /**
      * Parse custom properties for a given URL
      *
      * @param    {object}   url
