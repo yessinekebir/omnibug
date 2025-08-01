@@ -17,6 +17,7 @@ class DatameshProvider extends BaseProvider {
     get columnMapping()
     {
         return {
+            "account": "componentId",
             "requestType":  "requestType"
         };
     }
